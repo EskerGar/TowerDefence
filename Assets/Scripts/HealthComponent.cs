@@ -9,8 +9,10 @@ public class HealthComponent : MonoBehaviour
    private float _health;
    public event Action OnChange;
 
-   private void ChangeHealth(float amount, GameObject who)
+   private void ChangeHealth(float amount)
    {
-      
+      _health -= amount;
+      OnChange?.Invoke();
    }
+   
 }
