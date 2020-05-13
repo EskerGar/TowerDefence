@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cb96bc2798b46429ad02e60ef5769d, type: 3}
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
-  damage: 0.53
-  health: 120.34
-  award: 18.2
+  damage: 1
+  health: 30
+  award: 10

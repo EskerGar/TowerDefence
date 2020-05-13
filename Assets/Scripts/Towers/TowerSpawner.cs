@@ -8,15 +8,11 @@ public class TowerSpawner: MonoBehaviour
 {
     [Inject] private TowerBehaviour.TowerFabrik fabrik;
 
-    public void StartSpawn()
-    {
-        
-    }
-
     private void Start()
     {
         var tower =  fabrik.Create();
         tower.transform.position = transform.position;
+        Destroy(gameObject);
     }
     
 

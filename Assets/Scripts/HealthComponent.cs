@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-   [SerializeField]private float health;
+   private float health;
    public float ReturnHealth => health;
    public event Action OnChange;
    public event Action<GameObject> OnDeath;

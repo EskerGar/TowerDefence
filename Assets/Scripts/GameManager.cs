@@ -10,7 +10,6 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemySpawnerList = new List<GameObject>();
-    public float Gold { get; set; }
     private int killCount;
     private float delayBetweenWaves  = 5f;
     private bool endGame = false;
@@ -18,8 +17,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int addEnemy;
     private int waveCount = 0;
     public event Action<int> OnNextWave;
-
-    public void AddGold(GameObject enemy) => Gold = enemy.GetComponent<EnemyBehaviour>().Award;
 
     public void AddKill(GameObject enemy) => killCount++;
 

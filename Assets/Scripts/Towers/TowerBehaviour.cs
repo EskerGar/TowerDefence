@@ -1,4 +1,6 @@
-﻿using Settings;
+﻿using System;
+using Settings;
+using Ui;
 using UnityEngine;
 using Zenject;
 
@@ -6,27 +8,26 @@ namespace Towers
 {
     public class TowerBehaviour : MonoBehaviour
     {
-        [SerializeField] private TowerSettings towerSettings;
-        private TowerUpdate update;
+        private TowerParametrs parametrs;
+        [Inject] private TowerInfo info;
+        public event Action<float, float, float> OnUpdate, OnClick;
 
         public float Damage { get; private set; }
         public float SpeedAttack { get; private set; }
+        public float Level { get; private set; } = 0;
 
         private void Start()
         {
-            RefreshParametrs();
-            update = GetComponent<TowerUpdate>();
-            update.OnUpdate += RefreshParametrs;
+            parametrs = GetComponent<TowerParametrs>();
+            Damage = parametrs.Damage;
+            SpeedAttack = parametrs.SpeedAttack;
+            OnClick += info.ShowInfo;
         }
-
-        private void RefreshParametrs()
+        
+        private void OnMouseDown()
         {
-            Damage = towerSettings.damage;
-            SpeedAttack = towerSettings.attackSpeed;
+            OnClick?.Invoke(Level, Damage, SpeedAttack);
         }
-
-        public TowerSettings ReturnSettings => towerSettings;
-    
         public class TowerFabrik : Factory<TowerBehaviour>
         {
         }

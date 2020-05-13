@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Enemies;
 using ModestTree;
 using UnityEngine;
+using Zenject;
 
 namespace Towers
 {
@@ -10,12 +11,11 @@ namespace Towers
     {
         private TowerBehaviour tower;
         private readonly List<GameObject> targetList = new List<GameObject>();
-        private HealthComponent health;
         private Coroutine attackCoroutine;
 
         private void Start()
         {
-            tower = GetComponent<TowerBehaviour>();
+            tower = GetComponentInParent<TowerBehaviour>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)

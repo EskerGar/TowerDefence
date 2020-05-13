@@ -11,28 +11,23 @@ namespace Towers
         [SerializeField] private float upSpeedAttack;
         [SerializeField] private float minCost;
         [SerializeField] private float costCoeff;
-        private TowerSettings settings;
-        [Inject] private GameManager gameManager;
-        public event Action OnUpdate;
+        [Inject] private GoldComponent goldComponent;
+        private TowerBehaviour tower;
 
         private void Start()
         {
-            OnUpdate += Update;
+            tower = GetComponent<TowerBehaviour>();
+            tower.OnUpdate += Updated;
         }
 
-        public void Update()
+        private void Updated(float damage, float attackSpeed, float level)
         {
-            if (gameManager.Gold < minCost) return;
-            settings = GetComponent<TowerBehaviour>().ReturnSettings;
-            settings.damage += upDamage;
-            settings.attackSpeed += upSpeedAttack;
-            gameManager.Gold -= minCost;
+            if (goldComponent.ReturnGold < minCost) return;
+            damage += upDamage;
+            attackSpeed += upSpeedAttack;
+            level++;
+            goldComponent.Buy(minCost);
             minCost *= costCoeff;
-        }
-
-        private void OnMouseDown()
-        {
-            OnUpdate?.Invoke();
         }
     }
 }
