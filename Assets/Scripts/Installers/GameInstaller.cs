@@ -12,7 +12,6 @@ namespace Installers
         [SerializeField] private GameObject ourBase;
         public override void InstallBindings()
         {
-
             Container.BindInstance(ourBase);
             Container.Bind<EnemyPool>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindFactory<EnemyBehaviour, EnemyBehaviour.EnemyFabrik>().FromNewComponentOnNewPrefab(enemy);
