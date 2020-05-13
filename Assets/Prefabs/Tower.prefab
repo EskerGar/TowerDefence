@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5566491734770041205}
   - component: {fileID: 6017511411980743185}
   - component: {fileID: 4207804602671485000}
+  - component: {fileID: 4481457038332801545}
   - component: {fileID: -9136652368718032699}
+  - component: {fileID: 7690011037013316698}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -113,12 +115,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.05313444, y: 0}
   serializedVersion: 2
-  m_Radius: 2.6785116
+  m_Radius: 4.394615
+--- !u!114 &4481457038332801545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575566107948839974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c031a4603215ba4eb7f58adc9576b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerSettings: {fileID: 11400000, guid: 761e957edd0fc744988936aad541a1f1, type: 2}
 --- !u!114 &-9136652368718032699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,3 +146,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d2878273ecbcb4f9fb16e692113b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7690011037013316698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575566107948839974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a168f4a3039c384ab4a73212de52700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upDamage: 10
+  upSpeedAttack: 10
+  minCost: 10
+  costCoeff: 1.2

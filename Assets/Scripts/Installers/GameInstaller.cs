@@ -1,16 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Enemies;
+using Towers;
 using UnityEngine;
 using Zenject;
 
-public class GameInstaller : MonoInstaller
+namespace Installers
 {
-    [SerializeField] private GameObject ob;
-    [SerializeField] private GameObject ourBase;
-    public override void InstallBindings()
+    public class GameInstaller : MonoInstaller
     {
+        [SerializeField] private GameObject enemy;
+        [SerializeField] private GameObject tower;
+        [SerializeField] private GameObject ourBase;
+        public override void InstallBindings()
+        {
 
-        Container.BindInstance(ourBase);
-        Container.BindFactory<EnemyBehaviour, EnemyBehaviour.EnemyFabrik>().FromNewComponentOnNewPrefab(ob);
+            Container.BindInstance(ourBase);
+            Container.Bind<EnemyPool>().FromNewComponentOnNewGameObject().AsSingle();
+            Container.BindFactory<EnemyBehaviour, EnemyBehaviour.EnemyFabrik>().FromNewComponentOnNewPrefab(enemy);
+            Container.BindFactory<TowerBehaviour, TowerBehaviour.TowerFabrik>().FromNewComponentOnNewPrefab(tower);
+        }
     }
 }

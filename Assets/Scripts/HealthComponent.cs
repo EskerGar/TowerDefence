@@ -3,20 +3,20 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-   private float _health;
-   public float ReturnHealth => _health;
+   [SerializeField]private float health;
+   public float ReturnHealth => health;
    public event Action OnChange;
    public event Action<GameObject> OnDeath;
 
    public void TakeDamage(float amount)
    {
-      _health -= amount;
+      health -= amount;
       ProcessChanging();
    }
 
    private void ProcessChanging()
    {
-      if (_health <= 0)
+      if (health <= 0)
       {
          ProcessDeath();
          return;
@@ -31,7 +31,7 @@ public class HealthComponent : MonoBehaviour
 
    public void InitialHealth(float maxHealth)
    {
-      _health = maxHealth;
+      health = maxHealth;
    }
    
    

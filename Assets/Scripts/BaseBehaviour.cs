@@ -1,22 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Pathfinding;
-using Settings;
+﻿using Settings;
 using UnityEngine;
 using Zenject;
 
 public class BaseBehaviour : MonoBehaviour
 {
-    [Inject] private BaseSettings _enemySettings;
-
-    [Inject] private GameObject _target;
-    private HealthComponent _healthComponent;
+    [SerializeField] private BaseSettings baseSettings;
+    private HealthComponent healthComponent;
     
     private void Start()
     {
-        _healthComponent = GetComponent<HealthComponent>();
-        _healthComponent.InitialHealth(_enemySettings.health);
+        healthComponent = GetComponent<HealthComponent>();
+        healthComponent.InitialHealth(baseSettings.health);
+        healthComponent.OnDeath += Death;
     }
 
-    public void TakeDamage(float damage) => _healthComponent.TakeDamage(damage);
+    private void Death(GameObject go = null)
+    {
+        Time.timeScale = 0;
+    }
+
+    public void TakeDamage(float damage) => healthComponent.TakeDamage(damage);
 }
