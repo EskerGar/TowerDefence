@@ -15,7 +15,7 @@ namespace Installers
             Container.BindInstance(ourBase);
             Container.Bind<EnemyPool>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindFactory<EnemyBehaviour, EnemyBehaviour.EnemyFabrik>().FromNewComponentOnNewPrefab(enemy);
-            Container.BindFactory<TowerBehaviour, TowerBehaviour.TowerFabrik>().FromNewComponentOnNewPrefab(tower);
+            //Container.BindFactory<TowerBehaviour, TowerBehaviour.TowerFabrik>().FromNewComponentOnNewPrefab(tower);
         }
     }
 }

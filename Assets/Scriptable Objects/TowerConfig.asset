@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a78126f8ed84d498ebd26f393fc98e, type: 3}
   m_Name: TowerConfig
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   attackSpeed: 1

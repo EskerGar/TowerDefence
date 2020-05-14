@@ -6,11 +6,11 @@ using Zenject;
 
 public class TowerSpawner: MonoBehaviour
 {
-    [Inject] private TowerBehaviour.TowerFabrik fabrik;
-
+    //[Inject] private TowerBehaviour.TowerFabrik fabrik;
+    [SerializeField] private GameObject go;
     private void Start()
     {
-        var tower =  fabrik.Create();
+        var tower =  Instantiate(go);
         tower.transform.position = transform.position;
         Destroy(gameObject);
     }

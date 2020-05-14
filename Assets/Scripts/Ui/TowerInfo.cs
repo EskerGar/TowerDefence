@@ -12,7 +12,14 @@ namespace Ui
         [SerializeField] private Text attackSpeedText;
         [SerializeField] private Text costText;
         [SerializeField] private Button btnUpgrade;
+        [SerializeField] private GameObject panel;
         public Button ReturnButton => btnUpgrade;
+
+        private void Start()
+        {
+            GetComponentInChildren<Canvas>().worldCamera = Camera.main;
+            gameObject.SetActive(false);
+        }
 
         public void ShowInfo(TowerBehaviour tower)
         {
@@ -27,6 +34,7 @@ namespace Ui
             attackSpeedText.text = "AttackSpeed: " + tower.SpeedAttack.ToString();
             costText.text = "Cost: " + tower.Cost.ToString();
         }
-        
+
+        public void Close() => gameObject.SetActive(false);
     }
 }
