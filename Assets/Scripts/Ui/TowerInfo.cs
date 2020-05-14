@@ -11,18 +11,17 @@ namespace Ui
         [SerializeField] private Text damageText;
         [SerializeField] private Text attackSpeedText;
         [SerializeField] private Text costText;
-        [SerializeField] private Button btnUpgrade;
-        [SerializeField] private GameObject panel;
-        public Button ReturnButton => btnUpgrade;
+        private TowerBehaviour currentTower;
+        public TowerBehaviour ReturnCurrentTower => currentTower;
 
         private void Start()
         {
-            GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             gameObject.SetActive(false);
         }
 
         public void ShowInfo(TowerBehaviour tower)
         {
+            currentTower = tower;
             gameObject.SetActive(true);
             ResetInfo(tower);
         }

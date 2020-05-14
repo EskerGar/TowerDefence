@@ -425,6 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1658379983988965599}
   - component: {fileID: 4432200459767573168}
+  - component: {fileID: 5790551327159171466}
   m_Layer: 0
   m_Name: TowerInfo
   m_TagString: Untagged
@@ -463,8 +464,24 @@ MonoBehaviour:
   damageText: {fileID: 1990126199362402392}
   attackSpeedText: {fileID: 5013848320296846165}
   costText: {fileID: 5688938069137835385}
-  btnUpgrade: {fileID: 7554308026372750041}
-  panel: {fileID: 0}
+--- !u!114 &5790551327159171466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010298165984665630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 4432200459767573168}
+  _identifier: 
+  _useSceneContext: 0
+  _context: {fileID: 0}
+  _bindType: 0
 --- !u!1 &3265826175537260953
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +858,8 @@ GameObject:
   - component: {fileID: 8585847837829744022}
   - component: {fileID: 4672718844400693049}
   - component: {fileID: 7554308026372750041}
+  - component: {fileID: 8132938523248205900}
+  - component: {fileID: 4507744465075671351}
   m_Layer: 5
   m_Name: UpdateBtn
   m_TagString: Untagged
@@ -948,3 +967,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8132938523248205900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758333532132300024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d987aeb898816db4092a39f9b4002a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &4507744465075671351
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758333532132300024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 158.56198, y: 29.428164, z: 1}
+  m_Center: {x: 0.40717122, y: 0.435544, z: 0}
