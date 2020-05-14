@@ -1,4 +1,5 @@
 ﻿using System;
+using Towers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,19 +10,22 @@ namespace Ui
         [SerializeField] private Text levelText;
         [SerializeField] private Text damageText;
         [SerializeField] private Text attackSpeedText;
-        private Button btnUpgrade;
-        void Start()
-        {
-            btnUpgrade = GetComponentInChildren<Button>();
-            gameObject.SetActive(false);
-        }
+        [SerializeField] private Text costText;
+        [SerializeField] private Button btnUpgrade;
+        public Button ReturnButton => btnUpgrade;
 
-        public void ShowInfo(float level, float damage, float attackSpeed)
+        public void ShowInfo(TowerBehaviour tower)
         {
             gameObject.SetActive(true);
-            levelText.text = "Level: " + level.ToString();
-            damageText.text = "Damage: " + damage.ToString();
-            attackSpeedText.text = "AttackSpeed: " + attackSpeed.ToString();
+            ResetInfo(tower);
+        }
+
+        public void ResetInfo(TowerBehaviour tower)
+        {
+            levelText.text = "Level: " + tower.Level.ToString();
+            damageText.text = "Damage: " + tower.Damage.ToString();
+            attackSpeedText.text = "AttackSpeed: " + tower.SpeedAttack.ToString();
+            costText.text = "Cost: " + tower.Cost.ToString();
         }
         
     }
