@@ -1,7 +1,8 @@
-﻿using System;
+﻿using cakeslice;
 using Towers;
 using UnityEngine;
 using UnityEngine.UI;
+using Outline = cakeslice.Outline;
 
 namespace Ui
 {
@@ -21,7 +22,10 @@ namespace Ui
 
         public void ShowInfo(TowerBehaviour tower)
         {
+            if (currentTower != null)
+                currentTower.GetComponent<Outline>().enabled = false;
             currentTower = tower;
+            currentTower.GetComponent<Outline>().enabled = true;
             gameObject.SetActive(true);
             ResetInfo(tower);
         }
@@ -34,6 +38,10 @@ namespace Ui
             costText.text = "Cost: " + tower.Cost.ToString();
         }
 
-        public void Close() => gameObject.SetActive(false);
+        public void Close()
+        {
+            currentTower.GetComponent<Outline>().enabled = false;
+            gameObject.SetActive(false);
+        }
     }
 }

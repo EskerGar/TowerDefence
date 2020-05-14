@@ -71,11 +71,11 @@ GameObject:
   - component: {fileID: 5613853897843318414}
   - component: {fileID: 3390991004763291609}
   - component: {fileID: 5566491734770041205}
-  - component: {fileID: 7690011037013316698}
   - component: {fileID: 7426881616975834223}
   - component: {fileID: 2199761711153057605}
   - component: {fileID: -1901342396702569634}
   - component: {fileID: 2288707730639039081}
+  - component: {fileID: 6369369423355270633}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 46e0ecefe2ba442a5825f21e42530872, type: 2}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,22 +145,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7690011037013316698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3575566107948839974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a168f4a3039c384ab4a73212de52700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upDamage: 5
-  upSpeedAttack: 1
-  cost: 10
-  costCoeff: 1.5
 --- !u!114 &7426881616975834223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,3 +196,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _containerSource: 2
+--- !u!114 &6369369423355270633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575566107948839974}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 2
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
