@@ -27,5 +27,21 @@ namespace Enemies
         }
 
         public void AddEnemy(GameObject enemy) => activeEnemy.Add(enemy);
+
+        public void RestartLevel()
+        {
+            ClearList(activeEnemy);
+            ClearList(deactiveEnemy);
+        }
+
+        private void ClearList(List<GameObject> list)
+        {
+            foreach (var enemy in list)
+            {
+                list.Remove(enemy);
+                Destroy(enemy);
+            }
+        }
+    
     }
 }

@@ -27,7 +27,7 @@ public class GoldComponent : MonoBehaviour
         Add(amount);
     }
 
-    public void Add(float amount)
+    private void Add(float amount)
     {
         ProcessChanging(amount);
     }

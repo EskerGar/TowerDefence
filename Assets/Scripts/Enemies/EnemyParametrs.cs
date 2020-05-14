@@ -1,43 +1,55 @@
 ﻿    using System;
     using Settings;
     using UnityEngine;
+    using Zenject;
     using Random = UnityEngine.Random;
 
     namespace Enemies
     {
-        public class EnemyParametrs: MonoBehaviour
+        public class EnemyParametrs : MonoBehaviour
         {
-            private EnemyBehaviour enemyBehaviour;
             public float Damage { get; private set; }
             public float Award { get; private set; }
             public float Health { get; private set; }
-            [SerializeField] private EnemySettings settings;
-
+            private bool updated = false;
+            [Inject] private EnemySettings settings;
+            [SerializeField] private float koeffIncrease = .5f;
+            [Inject] private GameManager gameManager;
+            public event Action<float> OnUpdate;
             private void Awake()
             {
                 Damage = settings.damage;
                 Award = settings.award;
                 Health = settings.health;
+                OnUpdate += UpdateEnemy;
+                gameManager.OnNextWave += UpParametrs;
+            }
+            
+            private void UpdateEnemy(float koeffIncrease)
+            {
+                while (true)
+                {
+                    Damage += UpParametr(Damage, koeffIncrease);
+                    Health += UpParametr(Health, koeffIncrease);
+                    Award += UpParametr(Award, koeffIncrease);
+                    if (!updated)
+                        continue;
+                    updated = false;
+                    break;
+                }
             }
 
-            private void Start()
+            private float UpParametr(float parametr, float koeff)
             {
-                enemyBehaviour = GetComponent<EnemyBehaviour>();
-                enemyBehaviour.OnUpdate += UpdateEnemy;
+                var value = (parametr * koeff) * Random.Range(0, 2);
+                if (value > 0)
+                    updated = true;
+                return value;
             }
 
-            private void ParametrUp(float parametr, float koeffIncrease) => parametr += (parametr * koeffIncrease) * Random.Range(0, 1);
-
-            private void UpdateEnemy( float koeffIncrease)
+            private void UpParametrs(int count)
             {
-               ParametrUp(Damage, koeffIncrease);
-               ParametrUp(Health, koeffIncrease);
-               ParametrUp(Award, koeffIncrease);
-            }
-
-            private void OnDestroy()
-            {
-                enemyBehaviour.OnUpdate -= UpdateEnemy;
+                OnUpdate?.Invoke(koeffIncrease);   
             }
         }
     }

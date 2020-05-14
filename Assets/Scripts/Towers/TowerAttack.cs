@@ -12,6 +12,8 @@ namespace Towers
         private TowerBehaviour tower;
         private readonly List<GameObject> targetList = new List<GameObject>();
         private Coroutine attackCoroutine;
+        [Inject] private GameManager gameManager;
+        [Inject] private GoldComponent goldComponent;
 
         private void Start()
         {
@@ -46,6 +48,8 @@ namespace Towers
 
         private void TargetDead(GameObject deadMan)
         {
+            gameManager.AddKill();
+            goldComponent.AddForEnemy(deadMan);
             targetList.Remove(deadMan);
             deadMan.GetComponent<EnemyBehaviour>().UnsubscribeOnDeath(TargetDead);
         }

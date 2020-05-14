@@ -12,6 +12,7 @@ namespace Installers
         public override void InstallBindings()
         {
             Container.BindInstance(ourBase);
+            Container.Bind<TimeController>().FromNewComponentOnNewGameObject().AsSingle();
             Container.Bind<EnemyPool>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindFactory<EnemyBehaviour, EnemyBehaviour.EnemyFabrik>().FromNewComponentOnNewPrefab(enemy);
         }

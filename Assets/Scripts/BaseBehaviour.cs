@@ -6,6 +6,8 @@ using Zenject;
 public class BaseBehaviour : MonoBehaviour
 {
     [SerializeField] private BaseSettings baseSettings;
+    [Inject] private GameManager gameManager;
+    [Inject] private TimeController time;
     private HealthComponent healthComponent;
     public event Action OnDamaged;
     
@@ -20,7 +22,8 @@ public class BaseBehaviour : MonoBehaviour
 
     private void Death(GameObject go = null)
     {
-        Time.timeScale = 0;
+        gameManager.StartEndGame();
+        time.PauseOn();
     }
 
     public void TakeDamage(float damage)
