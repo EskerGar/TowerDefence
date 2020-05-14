@@ -6,9 +6,9 @@ namespace Ui
 {
     public class UiComponent : MonoBehaviour
     {
-        [Inject] private GameManager gameManager;
         [Inject] private BaseBehaviour baseBehaviour;
         [Inject] private GoldComponent goldComponent;
+        [Inject] private FloatRound floatRound;
         [SerializeField] private Text goldText;
         [SerializeField] private Text healthText;
 
@@ -22,12 +22,12 @@ namespace Ui
 
         private void RefreshGoldView()
         {
-            goldText.text = goldComponent.ReturnGold.ToString();
+            goldText.text ="Gold: " + floatRound.Convert(goldComponent.ReturnGold).ToString();
         }
 
         private void RefreshHealthView()
         {
-            healthText.text = baseBehaviour.ReturnHealth.ToString();
+            healthText.text ="Health: " +  floatRound.Convert(baseBehaviour.ReturnHealth).ToString();
         }
     }
 }

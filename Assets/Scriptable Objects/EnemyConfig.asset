@@ -15,3 +15,4 @@ MonoBehaviour:
   damage: 1
   health: 30
   award: 10
+  koeffIncrease: 0.2

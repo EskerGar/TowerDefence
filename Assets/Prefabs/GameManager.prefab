@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -4172573479566831903}
   - component: {fileID: 5805142039283354016}
   - component: {fileID: 1974549545758511678}
+  - component: {fileID: 7152157094300694993}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc7720f5d660024eb24c1027e58dba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerList: []
   addEnemy: 0
 --- !u!114 &5805142039283354016
 MonoBehaviour:
@@ -62,6 +62,7 @@ MonoBehaviour:
   _components:
   - {fileID: -4172573479566831903}
   - {fileID: 1974549545758511678}
+  - {fileID: 7152157094300694993}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 0}
@@ -76,5 +77,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd8897132a6a71449a6b2e01f9d1693e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7152157094300694993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896116420853429938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97879610a1d5ec74fb8f26158361632f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

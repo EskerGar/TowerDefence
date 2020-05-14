@@ -2,6 +2,7 @@
 using Towers;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 using Outline = cakeslice.Outline;
 
 namespace Ui
@@ -12,6 +13,7 @@ namespace Ui
         [SerializeField] private Text damageText;
         [SerializeField] private Text attackSpeedText;
         [SerializeField] private Text costText;
+        [Inject] private FloatRound floatRound;
         private TowerBehaviour currentTower;
         public TowerBehaviour ReturnCurrentTower => currentTower;
 
@@ -33,9 +35,9 @@ namespace Ui
         public void ResetInfo(TowerBehaviour tower)
         {
             levelText.text = "Level: " + tower.Level.ToString();
-            damageText.text = "Damage: " + tower.Damage.ToString();
-            attackSpeedText.text = "AttackSpeed: " + tower.SpeedAttack.ToString();
-            costText.text = "Cost: " + tower.Cost.ToString();
+            damageText.text = "Damage: " + floatRound.Convert(tower.Damage).ToString();
+            attackSpeedText.text = "AttackSpeed: " + floatRound.Convert(tower.SpeedAttack).ToString();
+            costText.text = "Cost: " + floatRound.Convert(tower.Cost).ToString();
         }
 
         public void Close()

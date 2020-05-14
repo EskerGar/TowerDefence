@@ -13,7 +13,7 @@
             public float Health { get; private set; }
             private bool updated = false;
             [Inject] private EnemySettings settings;
-            [SerializeField] private float koeffIncrease = .5f;
+            private float koeffIncrease;
             [Inject] private GameManager gameManager;
             public event Action<float> OnUpdate;
             private void Awake()
@@ -21,6 +21,7 @@
                 Damage = settings.damage;
                 Award = settings.award;
                 Health = settings.health;
+                koeffIncrease = settings.koeffIncrease;
                 OnUpdate += UpdateEnemy;
                 gameManager.OnNextWave += UpParametrs;
             }
