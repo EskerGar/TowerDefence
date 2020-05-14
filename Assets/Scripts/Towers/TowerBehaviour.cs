@@ -41,8 +41,8 @@ namespace Towers
         public void UpParametrs(float level, float damage, float attackSpeed, float cost)
         {
             Level += level;
-            Damage += damage;
-            SpeedAttack += attackSpeed;
+            Damage = damage;
+            SpeedAttack = attackSpeed;
             Cost = cost;
         }
     }

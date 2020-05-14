@@ -11,20 +11,18 @@ namespace Towers
         private TowerBehaviour towerBehaviour;
         public float Damage { get; private set; }
         public float SpeedAttack { get; private set; }
-        private float UpDamage { get; set; }
-        private float UpSpeedAttack { get; set; }
+        private float damageCoeffIncrease, speedAttackCoeffIncrease, costCoeffIncrease;
         public float Cost { get; private set; }
-        private float CostCoeff { get; set; }
 
         private void Awake()
         {
             towerBehaviour = GetComponent<TowerBehaviour>();
             Damage = settings.damage;
             SpeedAttack = settings.attackSpeed;
-            UpDamage = settings.upDamage;
-            UpSpeedAttack = settings.upSpeedAttack;
+            damageCoeffIncrease = settings.damageCoeffIncrease;
+            speedAttackCoeffIncrease = settings.speedAttackCoefIncrease;
             Cost = settings.cost;
-            CostCoeff = settings.costCoeff;
+            costCoeffIncrease = settings.costCoeffIncrease;
             towerBehaviour.OnUpdate += Updated;
         }
         
@@ -32,8 +30,10 @@ namespace Towers
         {
             if (goldComponent.ReturnGold < tower.Cost) return;
             goldComponent.Buy(tower.Cost);
-            var cost = tower.Cost * CostCoeff;
-            tower.UpParametrs(1, UpDamage, UpSpeedAttack, cost);
+            var cost = tower.Cost * costCoeffIncrease;
+            var damage = tower.Damage * damageCoeffIncrease;
+            var speedAttack = tower.SpeedAttack * speedAttackCoeffIncrease;
+            tower.UpParametrs(1, damage, speedAttack, cost);
         }
     }
 }

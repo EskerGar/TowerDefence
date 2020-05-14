@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Settings
 {
@@ -8,9 +9,9 @@ namespace Settings
     {
         [Min(0)] public float damage;
         [Min(0)] public float attackSpeed;
-        [Min(0)] public float upDamage;
-        [Min(0)] public float upSpeedAttack;
+        [Min(0)] public float damageCoeffIncrease;
+        [Min(0)] public float speedAttackCoefIncrease;
         [Min(0)] public float cost;
-        [Min(0)] public float costCoeff;
+        [Min(0)] public float costCoeffIncrease;
     }
 }
