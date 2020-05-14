@@ -10,10 +10,7 @@ namespace Enemies
          private EnemyBehaviour enemy;
         [Inject] private BaseBehaviour baseBehaviour;
 
-        private void Start()
-        {
-            enemy = GetComponent<EnemyBehaviour>();
-        }
+        private void Start() => enemy = GetComponent<EnemyBehaviour>();
 
         private void OnCollisionEnter2D(Collision2D other)
         {

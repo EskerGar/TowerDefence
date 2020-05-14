@@ -1,6 +1,5 @@
 ﻿using System;
 using Pathfinding;
-using Settings;
 using UnityEngine;
 using Zenject;
 
@@ -12,13 +11,11 @@ namespace Enemies
         [Inject] private EnemyParametrs parametrs;
         private HealthComponent healthComponent;
         [Inject] private EnemyPool enemyPool;
+        public bool isSuicide { get; private set; } = false;
         public float Award { get; private set; }
         public float Damage { get; private set; }
 
-        private void Awake()
-        {
-            GetComponent<AIDestinationSetter>().target = target.transform;
-        }
+        private void Awake() => GetComponent<AIDestinationSetter>().target = target.transform;
 
         public void Initialize()
         {
@@ -34,13 +31,11 @@ namespace Enemies
             Initialize();
         }
     
-        public void TakeDamage(float damage)
-        {
-            healthComponent.TakeDamage(damage);
-        }
+        public void TakeDamage(float damage) => healthComponent.TakeDamage(damage);
 
         public void Suicide()
         {
+            isSuicide = true;
             healthComponent.TakeDamage(healthComponent.ReturnHealth);
         }
 

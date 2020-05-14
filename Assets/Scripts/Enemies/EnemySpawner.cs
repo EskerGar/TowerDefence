@@ -11,10 +11,7 @@ namespace Enemies
         [Inject] private EnemyPool enemyPool;
         [Inject] private GameManager gameManager;
 
-        private void Start()
-        {
-            gameManager.OnNextWave += StartSpawn;
-        }
+        private void Start() => gameManager.OnNextWave += StartSpawn;
 
         private void StartSpawn(int spawnCount) => StartCoroutine(Fabrik(spawnCount));
 

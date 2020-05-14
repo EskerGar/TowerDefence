@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   health: 30
-  award: 10
-  koeffIncrease: 0.2
+  award: 1
+  damageCoeffIncrease: 0.5
+  healthCoeffIncrease: 0.5
+  awardCoeffIncrease: 0.5

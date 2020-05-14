@@ -15,10 +15,7 @@ namespace Towers
         [Inject] private GameManager gameManager;
         [Inject] private GoldComponent goldComponent;
 
-        private void Start()
-        {
-            tower = GetComponentInParent<TowerBehaviour>();
-        }
+        private void Start() => tower = GetComponentInParent<TowerBehaviour>();
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -48,8 +45,11 @@ namespace Towers
 
         private void TargetDead(GameObject deadMan)
         {
-            gameManager.AddKill();
-            goldComponent.AddForEnemy(deadMan);
+            if (!deadMan.GetComponent<EnemyBehaviour>().isSuicide)
+            {
+                gameManager.AddKill();
+                goldComponent.AddForEnemy(deadMan);
+            }
             targetList.Remove(deadMan);
             deadMan.GetComponent<EnemyBehaviour>().UnsubscribeOnDeath(TargetDead);
         }

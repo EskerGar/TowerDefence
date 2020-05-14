@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Enemies;
 using UnityEngine;
 
@@ -10,10 +8,7 @@ public class GoldComponent : MonoBehaviour
     public float ReturnGold => gold;
     public event Action OnChange;
 
-    public void Buy(float amount)
-    {
-        ProcessChanging(-amount);
-    }
+    public void Buy(float amount) => ProcessChanging(-amount);
 
     private void ProcessChanging(float amount)
     {
@@ -27,9 +22,5 @@ public class GoldComponent : MonoBehaviour
         Add(amount);
     }
 
-    private void Add(float amount)
-    {
-        ProcessChanging(amount);
-    }
-    
+    private void Add(float amount) => ProcessChanging(amount);
 }

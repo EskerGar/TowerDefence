@@ -50,9 +50,6 @@
                 return value;
             }
 
-            private void UpParametrs(int count)
-            {
-                OnUpdate?.Invoke(damageCoeffIncrease, healthCoeffIncrease, awardCoeffIncrease);   
-            }
+            private void UpParametrs(int count) => OnUpdate?.Invoke(damageCoeffIncrease, healthCoeffIncrease, awardCoeffIncrease);
         }
     }

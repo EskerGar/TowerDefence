@@ -1,6 +1,4 @@
 ﻿using System;
-using cakeslice;
-using Settings;
 using Ui;
 using UnityEngine;
 using Zenject;
@@ -28,22 +26,16 @@ namespace Towers
             OnUpdate += info.ResetInfo;
         }
 
-        public void UpdateStart()
-        {
-            OnUpdate?.Invoke(this);
-        }
+        public void UpdateStart() => OnUpdate?.Invoke(this);
 
-        private void OnMouseDown()
-        {
-            OnClick?.Invoke(this);
-        }
+        private void OnMouseDown() => OnClick?.Invoke(this);
 
         public void UpParametrs(float level, float damage, float attackSpeed, float cost)
         {
             Level += level;
-            Damage = damage;
-            SpeedAttack = attackSpeed;
-            Cost = cost;
+            Damage += damage;
+            SpeedAttack += attackSpeed;
+            Cost += cost;
         }
     }
 }

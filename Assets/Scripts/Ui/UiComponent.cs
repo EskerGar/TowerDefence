@@ -8,7 +8,6 @@ namespace Ui
     {
         [Inject] private BaseBehaviour baseBehaviour;
         [Inject] private GoldComponent goldComponent;
-        [Inject] private FloatRound floatRound;
         [SerializeField] private Text goldText;
         [SerializeField] private Text healthText;
 
@@ -20,14 +19,8 @@ namespace Ui
             baseBehaviour.OnDamaged += RefreshHealthView;
         }
 
-        private void RefreshGoldView()
-        {
-            goldText.text ="Gold: " + floatRound.Convert(goldComponent.ReturnGold).ToString();
-        }
+        private void RefreshGoldView() => goldText.text ="Gold: " + goldComponent.ReturnGold.ToString("F1");
 
-        private void RefreshHealthView()
-        {
-            healthText.text ="Health: " +  floatRound.Convert(baseBehaviour.ReturnHealth).ToString();
-        }
+        private void RefreshHealthView() => healthText.text ="Health: " +  baseBehaviour.ReturnHealth.ToString("F1");
     }
 }

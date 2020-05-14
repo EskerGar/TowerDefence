@@ -1,23 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Towers;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
-public class TowerSpawner: MonoBehaviour
+namespace Towers
 {
-    [SerializeField] private GameObject spawnObject;
-    private void Start()
+    public class TowerSpawner: MonoBehaviour
     {
-        var tower =  Instantiate(spawnObject);
-        tower.transform.position = transform.position;
-        Destroy(gameObject);
-    }
+        [SerializeField] private GameObject spawnObject;
+        private void Start()
+        {
+            var tower =  Instantiate(spawnObject);
+            tower.transform.position = transform.position;
+            Destroy(gameObject);
+        }
     
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube(transform.position, Vector3.one );
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawCube(transform.position, Vector3.one );
+        }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Ui;
+﻿using Ui;
 using UnityEngine;
 using Zenject;
 

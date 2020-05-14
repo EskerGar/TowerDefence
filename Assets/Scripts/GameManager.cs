@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using Enemies;
-using Settings;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -10,11 +7,11 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     private int killCount;
-    private float delayBetweenWaves  = 5f;
+    private float delayBetweenWaves;
     private bool endGame = false;
     [Tooltip("Дополнительное количество врагов к волне")]
     [SerializeField] private int addEnemy;
-    [Inject] private TimeController time;
+    [Inject] private Files file;
     private int waveCount = 0;
     public event Action<int> OnNextWave, OnEndGame;
 
@@ -22,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        var config = file.ReadConfigFile();
+        delayBetweenWaves = config.delayBetweenWaves;
         StartCoroutine(NextWaveCoroutine());
     }
 
@@ -40,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator NextWaveCoroutine()
     {
+        yield return new WaitForSeconds(delayBetweenWaves);
         while (!endGame)
         {
             NextWave();
