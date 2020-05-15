@@ -11,7 +11,7 @@ namespace Enemies
         [Inject] private EnemyParametrs parametrs;
         private HealthComponent healthComponent;
         [Inject] private EnemyPool enemyPool;
-        public bool isSuicide { get; private set; } = false;
+        public bool IsSuicide { get; private set; } = false;
         public float Award { get; private set; }
         public float Damage { get; private set; }
 
@@ -35,7 +35,7 @@ namespace Enemies
 
         public void Suicide()
         {
-            isSuicide = true;
+            IsSuicide = true;
             healthComponent.TakeDamage(healthComponent.ReturnHealth);
         }
 

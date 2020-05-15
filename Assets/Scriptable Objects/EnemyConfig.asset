@@ -17,4 +17,4 @@ MonoBehaviour:
   award: 1
   damageCoeffIncrease: 0.5
   healthCoeffIncrease: 0.5
-  awardCoeffIncrease: 0.5
+  awardCoeffIncrease: 0.7

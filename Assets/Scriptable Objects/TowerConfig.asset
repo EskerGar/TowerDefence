@@ -17,4 +17,4 @@ MonoBehaviour:
   damageCoeffIncrease: 0.2
   speedAttackCoefIncrease: 0.2
   cost: 5
-  costCoeffIncrease: 0.2
+  costCoeffIncrease: 0.4

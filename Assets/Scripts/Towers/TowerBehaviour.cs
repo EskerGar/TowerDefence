@@ -8,7 +8,9 @@ namespace Towers
     public class TowerBehaviour : MonoBehaviour
     {
         private TowerParametrs parametrs;
+        [SerializeField] private GameObject rangeAttack;
         [Inject]private TowerInfo info;
+        public GameObject ReturnRangeAttack => rangeAttack;
         public event Action<TowerBehaviour> OnUpdate, OnClick;
 
         public float Damage { get; private set; }

@@ -19,9 +19,13 @@ namespace Ui
         public void ShowInfo(TowerBehaviour tower)
         {
             if (currentTower != null)
+            {
                 currentTower.GetComponent<Outline>().enabled = false;
+                currentTower.ReturnRangeAttack.GetComponent<Outline>().enabled = false;
+            }
             currentTower = tower;
             currentTower.GetComponent<Outline>().enabled = true;
+            currentTower.ReturnRangeAttack.GetComponent<Outline>().enabled = true;
             gameObject.SetActive(true);
             ResetInfo(tower);
         }
@@ -37,6 +41,7 @@ namespace Ui
         public void Close()
         {
             currentTower.GetComponent<Outline>().enabled = false;
+            currentTower.ReturnRangeAttack.GetComponent<Outline>().enabled = false;
             gameObject.SetActive(false);
         }
     }

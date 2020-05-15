@@ -11,12 +11,12 @@ public class HealthComponent : MonoBehaviour
 
    public void TakeDamage(float amount)
    {
-      health -= amount;
-      ProcessChanging();
+      ProcessChanging(-amount);
    }
 
-   private void ProcessChanging()
+   private void ProcessChanging(float amount)
    {
+      health += amount;
       if (health <= 0)
       {
          health = 0;
@@ -31,7 +31,7 @@ public class HealthComponent : MonoBehaviour
    public void InitialHealth(float maxHealth)
    {
       this.maxHealth = maxHealth;
-      health = this.maxHealth;
+      ProcessChanging(maxHealth);
    }
    
    

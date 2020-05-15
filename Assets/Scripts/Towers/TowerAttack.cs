@@ -45,7 +45,7 @@ namespace Towers
 
         private void TargetDead(GameObject deadMan)
         {
-            if (!deadMan.GetComponent<EnemyBehaviour>().isSuicide)
+            if (!deadMan.GetComponent<EnemyBehaviour>().IsSuicide)
             {
                 gameManager.AddKill();
                 goldComponent.AddForEnemy(deadMan);
