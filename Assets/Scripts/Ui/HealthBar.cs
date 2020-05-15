@@ -16,7 +16,7 @@ namespace Ui
             float currentHealth = health.ReturnHealth;
             if (currentHealth > 0)
             {
-                var healthValue = currentHealth / this.health.ReturnMaxHealth;
+                var healthValue = currentHealth / health.ReturnMaxHealth;
                 SetSize(healthValue);
             }
             else 
